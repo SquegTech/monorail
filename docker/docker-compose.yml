@@ -1,24 +1,6 @@
 version: '3.7'
 services:
 
-  # Main Redis Service
-  monorail-redis:
-    image: redis:6.2.6-alpine
-    container_name: monorail-redis
-    restart: unless-stopped
-    command: [sh, -c, "redis-server /etc/main.conf"]
-    ports:
-      - "6379:6379"
-    environment:
-      SERVICE_NAME: monorail-redis
-      SERVICE_TAGS: development
-    volumes:
-      - ./configurations/redis/main.conf:/etc/main.conf
-    networks:
-      monorail-network:
-        aliases:
-          - redis-main
-
   # Postgres Write Service
   monorail-db:
     image: postgres:14.1-alpine3.15
@@ -60,7 +42,6 @@ services:
         aliases:
           - app
     depends_on:
-      - monorail-redis
       - monorail-webserver
       - monorail-db
 
