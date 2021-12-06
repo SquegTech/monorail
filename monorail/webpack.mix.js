@@ -20,3 +20,8 @@ mix.babel([
         'resources/css/race/race.css'
     ], 'public/css/race.css')
     .copy('resources/images/race', 'public/images/race')
+    .copy('resources/images/home', 'public/images/home')
+    .postCss("resources/css/home/home.css", "public/css", [
+        require("tailwindcss"),
+    ])
+    .sass('resources/css/home/fontawesome.scss', 'public/css');

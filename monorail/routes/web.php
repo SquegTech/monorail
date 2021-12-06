@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RaceController;
 
 /*
@@ -14,8 +15,6 @@ use App\Http\Controllers\RaceController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/race/{racer_left}/{racer_right}', [RaceController::class, 'index'])->name('race');

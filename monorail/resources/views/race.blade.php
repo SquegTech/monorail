@@ -1,8 +1,8 @@
 <html>
     <head>
         <title>{{ $leftRacer['display_name'] }} vs. {{ $rightRacer['display_name'] }} - Monorail Racing</title>
-        <link rel="stylesheet" href="/css/race.css" />
-        <script src="/js/race.js"></script>
+        <link rel="stylesheet" href="{{ mix('/css/race.css') }}" />
+        <script src="{{ mix('/js/race.js') }}"></script>
     </head>
     <body>
         <div id="race-scene">
