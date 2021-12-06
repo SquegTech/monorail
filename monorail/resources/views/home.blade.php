@@ -51,7 +51,7 @@
                 <div>
                     <div>
                         <a class="text-2xl font-bold" href="https://www.discord.gg/Monolith">
-                            Discord
+                            Community Discord
                         </a>
                     </div>
                     <div>
@@ -67,10 +67,23 @@
             <hr />
             <div class="grid grid-cols-2 pt-6 pb-6">
                 <div class="text-8xl text-center">
-                    <a href="https://twitter.com/MonorailRacing">
-                        <i class="fab fa-twitter"></i>
+                    <a href="https://discord.gg/qeWwGRHqmM">
+                        <i class="fab fa-discord"></i>
                     </a>
                 </div>
+                <div>
+                    <div>
+                        <a class="text-2xl font-bold" href="https://discord.gg/qeWwGRHqmM">
+                            Racing Discord
+                        </a>
+                    </div>
+                    <div>
+                        The official Discord server for Monorail! Join here to participate in races.
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="grid grid-cols-2 pt-6 pb-6">
                 <div>
                     <div>
                         <a class="text-2xl font-bold" href="https://twitter.com/MonorailRacing">
@@ -81,9 +94,19 @@
                         Follow us on Twitter to get the latest news for upcoming tournaments!
                     </div>
                 </div>
+                <div class="text-8xl text-center">
+                    <a href="https://twitter.com/MonorailRacing">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
             </div>
             <hr />
             <div class="grid grid-cols-2 pt-6 pb-6">
+                <div class="text-8xl text-center">
+                    <a href="https://www.twitch.tv/MonorailRacing">
+                        <i class="fab fa-twitch"></i>
+                    </a>
+                </div>
                 <div>
                     <div>
                         <a class="text-2xl font-bold" href="https://www.twitch.tv/MonorailRacing">
@@ -94,19 +117,9 @@
                         Our showcases typically run at 2pm Eastern on our official channel. Be sure to follow to be notified as soon as we go live!
                     </div>
                 </div>
-                <div class="text-8xl text-center">
-                    <a href="https://www.twitch.tv/MonorailRacing">
-                        <i class="fab fa-twitch"></i>
-                    </a>
-                </div>
             </div>
             <hr />
             <div class="grid grid-cols-2 pt-6 pb-6">
-                <div class="text-8xl text-center">
-                    <a href="https://www.youtube.com/channel/UCMaLyfBBLFwXuEqIsV2kU5Q">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                </div>
                 <div>
                     <div>
                         <a class="text-2xl font-bold" href="https://www.youtube.com/channel/UCMaLyfBBLFwXuEqIsV2kU5Q">
@@ -116,6 +129,11 @@
                     <div>
                         Watch VODs of our past tournaments on our YouTube channel so you don't miss out on anything!
                     </div>
+                </div>
+                <div class="text-8xl text-center">
+                    <a href="https://www.youtube.com/channel/UCMaLyfBBLFwXuEqIsV2kU5Q">
+                        <i class="fab fa-youtube"></i>
+                    </a>
                 </div>
             </div>
         </div>
