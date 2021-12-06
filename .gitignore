@@ -1,1 +1,2 @@
 .idea
+docker/configurations/nginx/conf.d/default.conf

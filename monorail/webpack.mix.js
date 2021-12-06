@@ -11,7 +11,12 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+mix.babel([
+    'resources/js/race/spritefont.js',
+    'resources/js/race/race.js'
+], 'public/js/race.js')
+    .styles([
+        'resources/css/race/reset.css',
+        'resources/css/race/race.css'
+    ], 'public/css/race.css')
+    .copy('resources/images/race', 'public/images/race')

@@ -1,0 +1,183 @@
+.hidden {
+    display: none;
+}
+
+::selection {
+    color: none;
+    background: none;
+}
+
+* {
+    user-select: none;
+}
+
+body {
+    position: relative;
+    overflow: hidden;
+    background-color: black;
+}
+
+#race-scene {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+}
+
+#overlay {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    background: url("/images/race/overlay.png") 1920px 1080px;
+}
+
+#left-video {
+    position: absolute;
+    left: -378px;
+    top: 98px;
+    width: 1523px;
+    height: 857px;
+    clip-path: inset(0 406px 0 405px);
+}
+
+#right-video {
+    position: absolute;
+    left: 776px;
+    top: 98px;
+    width: 1523px;
+    height: 857px;
+    clip-path: inset(0 406px 0 405px);
+}
+
+#left-name {
+    position: absolute;
+    left: 117px;
+    top: 29px;
+    width: 570px;
+    height: 62px;
+    text-align: center;
+    color: #e22922;
+    font-size: 40px;
+}
+
+#right-name {
+    position: absolute;
+    left: 1233px;
+    top: 29px;
+    width: 570px;
+    height: 62px;
+    text-align: center;
+    color: #e22922;
+    font-size: 40px;
+}
+
+#timer {
+    position: absolute;
+    left: 922px;
+    top: 258px;
+    width: 78px;
+    height: 10px;
+    padding-top: 11px;
+    padding-bottom: 13px;
+    text-align: center;
+    font-size: 36px;
+    cursor: pointer;
+    font-variant-numeric: tabular-nums;
+    text-transform: full-width;
+    font-family: "Segoe UI";
+    font-weight: bold;
+    transform: scale(3);
+}
+
+#timer.reset {
+    filter: url(#red);
+}
+
+#timer.stopped {
+    filter: url(#green);
+}
+
+#timer-text {
+    filter: url(#red);
+    position: absolute;
+    left: 920px;
+    top: 323px;
+    width: 80px;
+    transform: scale(2);
+    text-align: center;
+}
+
+#commentary-text {
+    filter: url(#red);
+    position: absolute;
+    left: 920px;
+    top: 925px;
+    width: 80px;
+    transform: scale(2);
+    text-align: center;
+}
+
+#twitter {
+    filter: url(#red);
+    position: absolute;
+    right: 300px;
+    bottom: 5px;
+    transform: scale(3);
+    transform-origin: bottom right;
+    text-align: right;
+    font-size: 12px;
+}
+
+#left-victories {
+    position: absolute;
+    left: 748px;
+    top: 334px;
+    width: 178px;
+    height: 80px;
+    cursor: pointer;
+}
+
+#left-victory1 {
+    position: absolute;
+    left: 776px;
+    top: 331px;
+    width: 53px;
+    height: 82px;
+    background: url("/images/race/leftvictory.png") 53px 82px;
+}
+
+#left-victory2 {
+    position: absolute;
+    left: 833px;
+    top: 331px;
+    width: 53px;
+    height: 82px;
+    background: url("/images/race/leftvictory.png") 53px 82px;
+}
+
+#right-victories {
+    position: absolute;
+    left: 994px;
+    top: 334px;
+    width: 178px;
+    height: 80px;
+    cursor: pointer;
+}
+
+#right-victory1 {
+    position: absolute;
+    left: 1091px;
+    top: 331px;
+    width: 53px;
+    height: 82px;
+    background: url("/images/race/rightvictory.png") 53px 82px;
+}
+
+#right-victory2 {
+    position: absolute;
+    left: 1034px;
+    top: 331px;
+    width: 53px;
+    height: 82px;
+    background: url("/images/race/rightvictory.png") 53px 82px;
+}
+
