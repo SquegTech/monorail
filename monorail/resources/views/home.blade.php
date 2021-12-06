@@ -138,11 +138,12 @@
             </div>
         </div>
 
-{{--        <footer class="bg-black footer">--}}
-{{--            <div class="container">--}}
-{{--                <p class="m-0 text-center text-white small">&copy; {{ config('app.name') }} {{ now()->year }}</p>--}}
-{{--            </div>--}}
-{{--        </footer>--}}
+        <footer class="bg-black footer">
+            <div class="text-right">
+                <p>&copy; {{ config('app.name') }} {{ now()->year }}</p>
+                <a href="https://github.com/tommy-bolger/monorail"><i class="fab fa-github"></i> Github</a>
+            </div>
+        </footer>
         <script type="text/javascript">
             new Twitch.Embed("twitch-embed", {
                 width: '100%',
