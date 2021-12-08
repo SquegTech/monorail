@@ -11,9 +11,7 @@ services:
     volumes:
       - ../monorail:/var/www
     networks:
-      monorail-network:
-        aliases:
-          - app
+      - monorail-network
     depends_on:
       - monorail-webserver
 
@@ -22,6 +20,11 @@ services:
     build:
       context: ./nginx
       dockerfile: Dockerfile.development
+      args:
+        DOMAIN: ${DOMAIN}
+        COUNTRY: ${COUNTRY}
+        STATE: ${STATE}
+        ORGANIZATION: ${ORGANIZATION}
     image: monorail/nginx:latest
     container_name: monorail-webserver
     restart: unless-stopped
@@ -32,9 +35,7 @@ services:
     volumes:
       - ../monorail:/var/www
     networks:
-      monorail-network:
-        aliases:
-          - web
+      - monorail-network
 
 #Docker Networks
 networks:

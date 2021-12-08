@@ -1,0 +1,84 @@
+version: '3.7'
+services:
+
+  #PHP Web Service
+  monorail-app:
+    image: monorail/web:latest
+    container_name: monorail-app
+    restart: unless-stopped
+    tty: true
+    working_dir: /var/www
+    volumes:
+      - ../monorail:/var/www
+    networks:
+      - monorail-network
+    depends_on:
+      - monorail-webserver
+
+  #Nginx Service
+  monorail-webserver:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile.production
+      args:
+        DOMAIN: ${DOMAIN}
+    image: monorail/nginx:latest
+    environment:
+      DOMAIN: ${DOMAIN}
+      COUNTRY: ${COUNTRY}
+      STATE: ${STATE}
+      ORGANIZATION: ${ORGANIZATION}
+    container_name: monorail-webserver
+    restart: unless-stopped
+    tty: true
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ../monorail:/var/www
+      - monorail-webserver-ssl:/etc/ssl
+      - monorail-certbot-certs:/etc/letsencrypt
+      - monorail-live-certbot:/var/www/certbot/monorail.live
+    networks:
+      - monorail-network
+
+  monorail-certbot:
+    build: ./certbot
+    image: monorail/certbot
+    environment:
+      DOMAIN: ${DOMAIN}
+      EMAIL: ${CERTBOT_EMAIL}
+      CERTBOT_TEST_CERT: ${CERTBOT_TEST_CERT}
+      CERTBOT_RSA_KEY_SIZE: ${CERTBOT_RSA_KEY_SIZE}
+    volumes:
+      - monorail-certbot-certs:/etc/letsencrypt
+      - monorail-live-certbot:/var/www/certbot/monorail.live
+    networks:
+      - monorail-network
+    depends_on:
+      - monorail-webserver
+
+  monorail-cron:
+    build: ./cron
+    image: monorail/cron
+    environment:
+      COMPOSE_PROJECT_NAME: "${COMPOSE_PROJECT_NAME}"
+    volumes:
+      - ./:/workdir:ro
+      - ../monorail:/var/www
+    networks:
+      - monorail-network
+    depends_on:
+      - monorail-webserver
+      - monorail-certbot
+
+#Docker Networks
+networks:
+  monorail-network:
+
+volumes:
+  monorail-webserver-ssl:
+    external: true
+  monorail-certbot-certs:
+    external: true
+  monorail-live-certbot:

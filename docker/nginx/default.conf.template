@@ -22,12 +22,12 @@ server {
     server_name <SERVER_NAME>;
     root /var/www/public;
 
-    ssl_certificate /etc/ssl/<SSL_CRT_FILE_NAME>;
-    ssl_certificate_key /etc/ssl/<SSL_KEY_FILE_NAME>;
+    ssl_certificate /etc/nginx/ssl/dummy/<SERVER_NAME>/fullchain.pem;
+    ssl_certificate_key /etc/nginx/ssl/dummy/<SERVER_NAME>/privkey.pem;
 
     include /etc/nginx/options-ssl-nginx.conf;
 
-    ssl_dhparam /etc/ssl/ssl-dhparams.pem;
+    ssl_dhparam /etc/nginx/ssl/ssl-dhparams.pem;
 
     include /etc/nginx/hsts.conf;
 
