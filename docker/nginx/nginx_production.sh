@@ -19,7 +19,7 @@ if [ ! -f "/etc/nginx/ssl/dummy/$DOMAIN/fullchain.pem" ]; then
     -addext "keyUsage=digitalSignature"
 fi
 
-if [ ! -f /etc/ssl/ssl-dhparams.pem ]; then
+if [ ! -f /etc/nginx/ssl/ssl-dhparams.pem ]; then
   openssl dhparam -dsaparam -out /etc/nginx/ssl/ssl-dhparams.pem 4096
 fi
 
