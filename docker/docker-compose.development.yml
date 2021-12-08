@@ -1,0 +1,41 @@
+version: '3.7'
+services:
+
+  #PHP Web Service
+  monorail-app:
+    image: monorail/web:latest
+    container_name: monorail-app
+    restart: unless-stopped
+    tty: true
+    working_dir: /var/www
+    volumes:
+      - ../monorail:/var/www
+    networks:
+      monorail-network:
+        aliases:
+          - app
+    depends_on:
+      - monorail-webserver
+
+  #Nginx Service
+  monorail-webserver:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile.development
+    image: monorail/nginx:latest
+    container_name: monorail-webserver
+    restart: unless-stopped
+    tty: true
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ../monorail:/var/www
+    networks:
+      monorail-network:
+        aliases:
+          - web
+
+#Docker Networks
+networks:
+  monorail-network:

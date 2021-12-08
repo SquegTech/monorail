@@ -1,0 +1,30 @@
+FROM nginx:1.21.4-alpine
+
+ENV NGINX_SERVER_NAME=local.monorail.test
+ENV NGINX_SSL_CRT_FILE_NAME=local.monorail.test.crt
+ENV NGINX_SSL_KEY_FILE_NAME=local.monorail.test.key
+
+RUN apk update \
+    && apk add --no-cache openssl \
+    && openssl req -x509 -nodes -days 3650 \
+		-subj  "/C=US/ST=CA/O=Monorail Racing/CN=${NGINX_SERVER_NAME}" \
+		-newkey rsa:4096 -sha256 -keyout "/etc/ssl/${NGINX_SSL_KEY_FILE_NAME}" \
+		-out "/etc/ssl/${NGINX_SSL_CRT_FILE_NAME}" \
+    	-addext "subjectAltName=DNS:${NGINX_SERVER_NAME}" \
+    	-config /etc/ssl/openssl.cnf \
+    && rm -f /etc/ssl/openssl.cnf \
+    && openssl dhparam -dsaparam -out /etc/ssl/ssl-dhparams.pem 4096
+
+COPY default.conf.template /etc/nginx/conf.d/default.conf
+RUN sed -i "s/<SERVER_NAME>/${NGINX_SERVER_NAME}/g" /etc/nginx/conf.d/default.conf \
+    && sed -i "s/<SSL_CRT_FILE_NAME>/${NGINX_SSL_CRT_FILE_NAME}/g" /etc/nginx/conf.d/default.conf \
+    && sed -i "s/<SSL_KEY_FILE_NAME>/${NGINX_SSL_KEY_FILE_NAME}/g" /etc/nginx/conf.d/default.conf
+
+COPY options-ssl-nginx.conf /etc/nginx/
+COPY hsts.conf /etc/nginx/
+
+EXPOSE 80
+
+STOPSIGNAL SIGQUIT
+
+CMD ["nginx", "-g", "daemon off;"]
