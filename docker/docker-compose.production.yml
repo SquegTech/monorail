@@ -51,6 +51,7 @@ services:
       EMAIL: ${CERTBOT_EMAIL}
       CERTBOT_TEST_CERT: ${CERTBOT_TEST_CERT}
       CERTBOT_RSA_KEY_SIZE: ${CERTBOT_RSA_KEY_SIZE}
+    container_name: monorail-certbot
     volumes:
       - monorail-certbot-certs:/etc/letsencrypt
       - monorail-live-certbot:/var/www/certbot/monorail.live
@@ -64,6 +65,7 @@ services:
     image: monorail/cron
     environment:
       COMPOSE_PROJECT_NAME: "${COMPOSE_PROJECT_NAME}"
+    container_name: monorail-cron
     volumes:
       - ./:/workdir:ro
       - ../monorail:/var/www
