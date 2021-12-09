@@ -29,5 +29,8 @@ then
     echo "Running npm..."
     docker-compose -f docker-compose.production.yml exec monorail-app npm run production
 
+    echo "Restarting php-fpm..."
+    docker-compose -f docker-compose.production.yml restart monorail-app
+
     echo "Done!"
 fi
