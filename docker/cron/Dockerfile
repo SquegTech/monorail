@@ -12,7 +12,7 @@ RUN apk update \
     	libc-dev \
     	make \
     && apk add py3-pip \
-    && py3-pip install docker-compose \
+    && pip install docker-compose \
     && apk del .docker-compose-deps
 
 COPY renew_certs.sh /etc/periodic/daily/renew_certs
