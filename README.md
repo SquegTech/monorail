@@ -15,7 +15,7 @@
 
 Once all setup the bash shell for the PHP app can be accessed with `docker-compose -f docker-compose.development.yml exec monorail-app bash`. Inside of the bash shell the following things can be done:
 - Run a Laravel command with `php artisan`.
-- Execute `npm run development` to compile assets once to `npm run watch` to automatically compile assets when they are changed.
+- Execute `npm run development` to compile assets once or `npm run watch` to automatically compile assets when they are changed.
 
 ### Production Environment
 
