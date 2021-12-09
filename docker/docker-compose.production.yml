@@ -10,6 +10,7 @@ services:
     working_dir: /var/www
     volumes:
       - ../monorail:/var/www
+      - ./php/opcache.ini:/usr/local/etc/php/conf.d/opcache.ini
     networks:
       - monorail-network
     depends_on:
