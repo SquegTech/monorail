@@ -64,7 +64,7 @@ RUN apk update && apk upgrade \
     && useradd -u 1000 -ms /bin/bash -g www www
 
 # Copy any PHP extension configurations shared across all environments.
-COPY ./docker/configurations/php/docker-php-ext-phpredis.ini /usr/local/etc/php/conf.d/docker-php-ext-phpredis.ini
+COPY ./docker/php/docker-php-ext-phpredis.ini /usr/local/etc/php/conf.d/docker-php-ext-phpredis.ini
 
 # Copy existing application directory contents
 COPY ./monorail /var/www
