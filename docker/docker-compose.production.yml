@@ -37,7 +37,7 @@ services:
       - 443:443
     volumes:
       - ../monorail:/var/www
-      - monorail-webserver-ssl:/etc/ssl
+      - monorail-webserver-ssl:/etc/nginx/ssl
       - monorail-certbot-certs:/etc/letsencrypt
       - monorail-live-certbot:/var/www/certbot/monorail.live
     networks:
