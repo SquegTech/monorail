@@ -15,7 +15,7 @@ then
   docker-compose -f docker-compose.production.yml exec monorail-app composer install --optimize-autoloader --no-dev
 
   echo "Running npm install..."
-  docker-compose -f docker-compose.production.yml exec monorail-app npm install --production
+  docker-compose -f docker-compose.production.yml exec monorail-app npm install
 
   echo "Running npm..."
   docker-compose -f docker-compose.production.yml exec monorail-app npm run production
