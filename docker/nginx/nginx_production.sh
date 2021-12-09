@@ -43,9 +43,9 @@ wait_for_lets_encrypt() {
 }
 
 if [ ! -d "/etc/letsencrypt/live/$DOMAIN" ]; then
-    wait_for_lets_encrypt "$DOMAIN" &
-  else
-    use_lets_encrypt_certificates "$DOMAIN"
-  fi
+  wait_for_lets_encrypt "$DOMAIN" &
+else
+  use_lets_encrypt_certificates "$DOMAIN"
+fi
 
 exec nginx -g "daemon off;"

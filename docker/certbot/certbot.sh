@@ -25,7 +25,7 @@ fi
 
 if [ -d "/etc/letsencrypt/live/$DOMAIN" ]; then
   echo "Let's Encrypt certificate for $DOMAIN already exists"
-  continue
+  exit 1;
 fi
 
 echo "Obtaining the certificate for $DOMAIN"
