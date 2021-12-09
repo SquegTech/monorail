@@ -27,7 +27,7 @@ then
   docker-compose -f docker-compose.production.yml exec monorail-app php artisan view:cache
 
   echo "Optimizing composer..."
-  composer dump-autoload -o
+  docker-compose -f docker-compose.production.yml composer dump-autoload -o
 
   echo "Restarting php-fpm..."
   docker-compose -f docker-compose.production.yml restart monorail-app
