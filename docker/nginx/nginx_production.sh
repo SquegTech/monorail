@@ -7,7 +7,7 @@ if [ -z "$DOMAIN" ]; then
   exit 1;
 fi
 
-if [ ! -f "/etc/nginx/ssl/dummy/$DOMAIN/fullchain.pem" ]; then
+if [ ! -f "/etc/nginx/ssl/dummy/${DOMAIN}/fullchain.pem" ]; then
   echo "Generating dummy ceritificate for $DOMAIN"
   mkdir -p "/etc/nginx/ssl/dummy/$DOMAIN"
   openssl req -x509 -nodes -days 3650 \
